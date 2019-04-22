@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Pie_app.Model;
 
 namespace Pie_app.Controllers
 {
+    [Authorize]
     public class FeedBackController : Controller
     {
         private readonly IFeedBackRespo _feedBackRespo;
-
+       
         public FeedBackController(IFeedBackRespo feedBackRespo)
         {
             _feedBackRespo = feedBackRespo;
         }
+
         public IActionResult Index()
         {
             return View();
