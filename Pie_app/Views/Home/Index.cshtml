@@ -1,8 +1,7 @@
 ﻿
-@model Pie_app.ViewModels.HomeViewModel
+@model HomeViewModel
 
-
-                     
+            
                           <h2>@Model.Title</h2>
                           @foreach(var pie in Model.Pies)
                           {
@@ -13,7 +12,7 @@
 
                                         <h3>@pie.Price.ToString("c")</h3>
                                         <h3>
-                                            @pie.Name
+                                            <a asp-controller="Home" asp-action="Details" asp-route-id="@pie.Id">@pie.Name</a> 
                                         </h3>
                                         <p>@pie.ShortDescription</p>
                                           
