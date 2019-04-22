@@ -14,5 +14,6 @@ namespace Pie_app.Model
         }
 
         public DbSet<Pie> Pies { get; set; }
+        public DbSet<FeedBack> FeedBacks { get; set; }
     }
 }

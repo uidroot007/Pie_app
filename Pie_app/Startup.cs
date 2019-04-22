@@ -26,6 +26,7 @@ namespace Pie_app
         {
             services.AddMvc();
             services.AddTransient<IPieRespo, PieRespo>();
+            services.AddTransient<IFeedBackRespo, FeedBackReso>();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
