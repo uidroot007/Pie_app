@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Pie_app.Model;
+using Pie_app.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,10 +21,15 @@ namespace Pie_app.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.Title = "Pie overview";
 
             var pies = _pieRespo.GetAllPies().OrderBy(p => p.Name);
-            return View(pies);
+            var homeViewModel = new HomeViewModel()
+            {
+                Title = "Welcome to Pie Shop",
+                Pies = pies.ToList()
+            };
+        
+            return View(homeViewModel);
         }
     }
 }
